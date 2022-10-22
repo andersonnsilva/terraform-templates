@@ -1,0 +1,4 @@
+## Pasta com provider baixado
+.terraform/
+.terraform.lock.hcl
+infra.out

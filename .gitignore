@@ -1,5 +1,6 @@
 ## Pasta com provider baixado
 .terraform/
 .terraform.lock.hcl
+.terraform.tfstate.lock.info
 infra.out
 terraform.tfstate

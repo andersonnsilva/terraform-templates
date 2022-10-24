@@ -1,0 +1,1 @@
+endpoint_localstack = "http://host.docker.internal:4566"

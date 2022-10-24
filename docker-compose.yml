@@ -6,3 +6,4 @@ services:
     volumes:
       - ./infra/terraform/:/infra
     working_dir: /infra
+    entrypoint: sh -c "terraform init && terraform fmt && terraform plan -out='infra.out' && terraform apply infra.out"

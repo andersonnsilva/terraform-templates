@@ -14,7 +14,7 @@ Projeto para construção de templates Terraform para estudo. Neste projeto, con
 ```
 docker-compose -f localstack/docker-compose-localstack.yml up
 ```
-com isso, temos nossa localstack rodando localmente.
+com isso, temos nossa localstack rodando localmente. Os passos a seguir, devem ser feitos dentro do diretório: *image_terraform*
 
 2. Agora precisamos inicializar o nosso diretório de `infra/terraform`, ou seja, fazer o download da configuração do provider
 para dentro da pasta.
@@ -53,3 +53,19 @@ aws --endpoint-url=http://localhost:4566 dynamodb list-tables
 ```
 
 Se tudo ocorreu bem, deverá ser apresentado na tela a tabela criada.
+
+## Criando toda a Infra
+
+Já temos disponibilizada, templates prontos para criação dos seguintes recursos aws:
+
+* dynamodb
+* sns (Já com a subscrição criada juntamente com o Sqs)
+* sqs
+
+Caso queira pular todos os steps anteriores e executar a criação dos recursos com um único comando, navegue até a raiz do projeto e execute o comando abaixo:
+
+```
+docker-compose up
+```
+
+Com isto, subirá a localstack, e em seguida, todos os recursos já configurados serão criados.

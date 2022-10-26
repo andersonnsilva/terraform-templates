@@ -1,31 +1,26 @@
-terraform {
-  required_version = ">= 1.1.0"
-
-  required_providers {
-    aws = {
-      version = "3.73.0"
-      source  = "hashicorp/aws"
-    }
-  }
+module "dynamodb" {
+  source               = "./modules/dynamo"
+  table_name           = var.table_name
+  table_read_capacity  = var.table_read_capacity
+  table_write_capacity = var.table_write_capacity
+  table_hask_key       = var.table_hask_key
+  table_attribute_name = var.table_attribute_name
+  table_attribute_type = var.table_attribute_type
 }
 
-provider "aws" {
-  region                      = "sa-east-1"
-  access_key                  = "fake"
-  secret_key                  = "fake"
-  skip_credentials_validation = true
-  skip_metadata_api_check     = true
-  skip_requesting_account_id  = true
-
-  endpoints {
-    dynamodb = var.endpoint_localstack
-  }
-
-  default_tags {
-    tags = {
-      owner      = "anderson"
-      managed-by = "terraform"
-    }
-  }
-
+module "sns" {
+  source   = "./modules/sns"
+  sns_name = var.sns_name
+  sqs_arn  = module.sqs.sqs_arn
 }
+
+module "sqs" {
+  source   = "./modules/sqs"
+  sqs_name = var.sqs_name
+}
+
+# module "secretsmanager" {
+#   source       = "./modules/secretsmanager"
+#   secret_name  = var.secret_name
+#   secret_value = var.secret_value
+# }

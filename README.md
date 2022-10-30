@@ -61,6 +61,8 @@ Já temos disponibilizada, templates prontos para criação dos seguintes recurs
 * dynamodb
 * sns (Já com a subscrição criada juntamente com o Sqs)
 * sqs
+* S3
+* Secrets Manager
 
 Caso queira pular todos os steps anteriores e executar a criação dos recursos com um único comando, navegue até a raiz do projeto e execute o comando abaixo:
 

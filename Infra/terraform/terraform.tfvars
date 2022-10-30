@@ -26,3 +26,7 @@ sqs_name = "mysqs-queue"
 
 secret_name  = "my-secret"
 secret_value = "my-secret-value"
+
+#Variáveis para o recurso S3
+
+bucket_name = "my-bucket"

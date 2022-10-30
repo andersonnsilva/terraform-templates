@@ -19,8 +19,13 @@ module "sqs" {
   sqs_name = var.sqs_name
 }
 
-# module "secretsmanager" {
-#   source       = "./modules/secretsmanager"
-#   secret_name  = var.secret_name
-#   secret_value = var.secret_value
-# }
+module "secretsmanager" {
+  source       = "./modules/secretsmanager"
+  secret_name  = var.secret_name
+  secret_value = var.secret_value
+}
+
+module "s3" {
+  source      = "./modules/s3"
+  bucket_name = var.bucket_name
+}

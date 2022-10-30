@@ -74,3 +74,10 @@ variable "secret_value" {
   type        = string
   description = "Valor da secret"
 }
+
+#Variaveis para o recurso S3
+
+variable "bucket_name" {
+  type        = string
+  description = "Variavel que armazena o nome do Bucket"
+}

@@ -10,17 +10,21 @@ terraform {
 }
 
 provider "aws" {
-  region                      = var.aws_region
-  access_key                  = "fake"
-  secret_key                  = "fake"
+  region     = var.aws_region
+  access_key = "teste"
+  secret_key = "teste"
+
+  s3_force_path_style         = true
   skip_credentials_validation = true
   skip_metadata_api_check     = true
   skip_requesting_account_id  = true
 
   endpoints {
-    dynamodb = var.endpoint_localstack
-    sns      = var.endpoint_localstack
-    sqs      = var.endpoint_localstack
+    dynamodb       = var.endpoint_localstack
+    sns            = var.endpoint_localstack
+    sqs            = var.endpoint_localstack
+    secretsmanager = var.endpoint_localstack
+    s3             = var.endpoint_localstack
   }
 
   default_tags {
